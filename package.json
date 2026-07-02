@@ -1,0 +1,55 @@
+{
+  "version": "1.3.28",
+  "name": "kogiqa-mcp",
+  "description": "This web browser has been designed to help your agent debug and develop complex web applications.",
+  "keywords": [
+    "mcp",
+    "model context protocol",
+    "kogiqa",
+    "atagon",
+    "qa",
+    "testing",
+    "ai",
+    "integration",
+    "llm",
+    "ai webbrowser",
+    "assistant"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atagon-GmbH/kogiqa-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/atagon-GmbH/kogiqa-mcp/issues"
+  },
+  "mcpName": "com.atagon/kogiqa-mcp",
+  "type": "module",
+  "main": "index.js",
+  "types": "./types/index.d.ts",
+  "homepage": "https://kogiqa.com",
+  "author": {
+    "name": "atagon GmbH"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.0"
+  },
+  "bin": {
+    "kogiqa-mcp": "index.js"
+  },
+  "scripts": {
+    "postinstall": "node postInstall.js",
+    "inspect": "npx @modelcontextprotocol/inspector node index.js",
+    "inspect2": "CLIENT_PORT=5174 SERVER_PORT=5175 npx @modelcontextprotocol/inspector node index.js",
+    "publishNew": "npm run build:types && npm publish",
+    "build:types": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "add-mcp": "^1.13.0",
+    "axios": "^1.18.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.1"
+  }
+}

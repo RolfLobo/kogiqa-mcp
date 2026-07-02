@@ -1,0 +1,1200 @@
+{
+  "tools": [
+    {
+      "name": "browser_navigate",
+      "description": "Navigates to a given URL.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "description": "URL to navigate to",
+            "type": "string"
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_click",
+      "description": "Clicks an element matching the label.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "description": "Label of the element to click",
+            "type": "string"
+          },
+          "position": {
+            "description": "These are the approximate coordinates of the element. If none are known, just use x:0 and y:0.",
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "x",
+              "y"
+            ]
+          },
+          "repeat": {
+            "description": "Number of times to repeat the click",
+            "type": "number"
+          }
+        },
+        "required": [
+          "label",
+          "position"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_click_at_position",
+      "description": "Clicks at a specific coordinate position.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "x": {
+            "description": "X coordinate",
+            "type": "number"
+          },
+          "y": {
+            "description": "Y coordinate",
+            "type": "number"
+          }
+        },
+        "required": [
+          "x",
+          "y"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_draw_on_canvas",
+      "description": "Draws a path on a canvas element.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "drawPath": {
+            "description": "Path coordinates to draw",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "number"
+                },
+                "y": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "x",
+                "y"
+              ]
+            }
+          }
+        },
+        "required": [
+          "drawPath"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_sleep",
+      "description": "Sleeps/waits for a specific duration.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "durationInS": {
+            "description": "Duration to sleep in seconds",
+            "type": "number"
+          }
+        },
+        "required": [
+          "durationInS"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_type",
+      "description": "Types text into an element matching the label.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "description": "Label of the input element",
+            "type": "string"
+          },
+          "text": {
+            "description": "Text to type",
+            "type": "string"
+          },
+          "position": {
+            "description": "These are the approximate coordinates of the element. If none are known, just use x:0 and y:0.",
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "x",
+              "y"
+            ]
+          },
+          "repeat": {
+            "description": "Number of times to repeat",
+            "type": "number"
+          }
+        },
+        "required": [
+          "label",
+          "text",
+          "position"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_select",
+      "description": "Selects an option from a dropdown matching the label.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "description": "Label of the select element",
+            "type": "string"
+          },
+          "option": {
+            "description": "Option to select",
+            "type": "string"
+          },
+          "position": {
+            "description": "These are the approximate coordinates of the element. If none are known, just use x:0 and y:0.",
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "x",
+              "y"
+            ]
+          }
+        },
+        "required": [
+          "label",
+          "option",
+          "position"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_keypress",
+      "description": "Presses a keyboard shortcut.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "shortcut": {
+            "description": "Shortcut string (e.g., \"Enter\", \"Control+C\")",
+            "type": "string"
+          },
+          "repeat": {
+            "description": "Number of times to press",
+            "type": "number"
+          }
+        },
+        "required": [
+          "shortcut"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_scroll",
+      "description": "Scrolls the page or element.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "xAxis": {
+            "description": "Scroll amount on X axis",
+            "type": "number"
+          },
+          "yAxis": {
+            "description": "Scroll amount on Y axis",
+            "type": "number"
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_resize",
+      "description": "Resizes an element matching the label.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "description": "Label of the element to resize",
+            "type": "string"
+          },
+          "targetX": {
+            "description": "Target X coordinate for resize",
+            "type": "number"
+          },
+          "targetY": {
+            "description": "Target Y coordinate for resize",
+            "type": "number"
+          },
+          "position": {
+            "description": "These are the approximate coordinates of the element. If none are known, just use x:0 and y:0.",
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "x",
+              "y"
+            ]
+          }
+        },
+        "required": [
+          "label",
+          "targetX",
+          "targetY",
+          "position"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_hover",
+      "description": "Hovers at a specific coordinate position.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "x": {
+            "description": "X coordinate to hover over",
+            "type": "number"
+          },
+          "y": {
+            "description": "Y coordinate to hover over",
+            "type": "number"
+          }
+        },
+        "required": [
+          "x",
+          "y"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_has_text",
+      "description": "Checks if text exists on the page.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "description": "Text to look for",
+            "type": "string"
+          },
+          "minScore": {
+            "description": "Minimum confidence score",
+            "type": "number"
+          }
+        },
+        "required": [
+          "text"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_has_input",
+      "description": "Checks if an input element exists.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "description": "Label of the input",
+            "type": "string"
+          },
+          "minScore": {
+            "description": "Minimum confidence score",
+            "type": "number"
+          },
+          "position": {
+            "description": "These are the approximate coordinates of the element. If none are known, just use x:0 and y:0.",
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "x",
+              "y"
+            ]
+          }
+        },
+        "required": [
+          "label",
+          "position"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_has_button",
+      "description": "Checks if a button exists.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "description": "Label of the button",
+            "type": "string"
+          },
+          "minScore": {
+            "description": "Minimum confidence score",
+            "type": "number"
+          },
+          "position": {
+            "description": "These are the approximate coordinates of the element. If none are known, just use x:0 and y:0.",
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "x",
+              "y"
+            ]
+          }
+        },
+        "required": [
+          "label",
+          "position"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_clear_session",
+      "description": "Clears the browser session.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_auto_login",
+      "description": "Automatically logs into a site.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "description": "Username for login",
+            "type": "string"
+          },
+          "password": {
+            "description": "Password for login",
+            "type": "string"
+          }
+        },
+        "required": [
+          "username",
+          "password"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_check_structure",
+      "description": "Checks the structure of an element.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "ID of the element to check structure",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_select_text",
+      "description": "Use the cursor to select text inside an input field.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "description": "Label identifying where to select",
+            "type": "string"
+          },
+          "text": {
+            "description": "Text content to select",
+            "type": "string"
+          },
+          "position": {
+            "description": "These are the approximate coordinates of the element. If none are known, just use x:0 and y:0.",
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "x",
+              "y"
+            ]
+          }
+        },
+        "required": [
+          "label",
+          "text",
+          "position"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_upload_file",
+      "description": "Uploads a file to an input element.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "description": "Label of the file input element",
+            "type": "string"
+          },
+          "files": {
+            "description": "Array of file paths to upload",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "position": {
+            "description": "These are the approximate coordinates of the element. If none are known, just use x:0 and y:0.",
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "x",
+              "y"
+            ]
+          }
+        },
+        "required": [
+          "label",
+          "files",
+          "position"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_list_downloads",
+      "description": "Lists downloaded files.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_clear_downloads",
+      "description": "Clears downloaded files.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_dragstart",
+      "description": "Starts a drag operation.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "description": "Label of the element to drag",
+            "type": "string"
+          },
+          "position": {
+            "description": "These are the approximate coordinates of the element. If none are known, just use x:0 and y:0.",
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "x",
+              "y"
+            ]
+          }
+        },
+        "required": [
+          "label",
+          "position"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_dragend",
+      "description": "Ends a drag operation.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "description": "Label of the target element",
+            "type": "string"
+          },
+          "position": {
+            "description": "These are the approximate coordinates of the element. If none are known, just use x:0 and y:0.",
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "x",
+              "y"
+            ]
+          }
+        },
+        "required": [
+          "label",
+          "position"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_dragover",
+      "description": "Drags over an element.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "description": "Label of the target element",
+            "type": "string"
+          },
+          "position": {
+            "description": "These are the approximate coordinates of the element. If none are known, just use x:0 and y:0.",
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "x",
+              "y"
+            ]
+          }
+        },
+        "required": [
+          "label",
+          "position"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_drag_from_to",
+      "description": "Drags an element from one label to another target label.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sourceLabel": {
+            "description": "Label of the source element to drag",
+            "type": "string"
+          },
+          "targetLabel": {
+            "description": "Label of the target element to drop onto",
+            "type": "string"
+          },
+          "options": {
+            "description": "Additional options for dragging"
+          }
+        },
+        "required": [
+          "sourceLabel",
+          "targetLabel"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_get_page_text",
+      "description": "Gets the text content of the page.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_evaluate",
+      "description": "Evaluates JavaScript on the page.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "functionString": {
+            "description": "JavaScript function string to evaluate",
+            "type": "string"
+          }
+        },
+        "required": [
+          "functionString"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_open_pdf",
+      "description": "Opens a PDF file.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "fileKey": {
+            "description": "File key of the PDF to open",
+            "type": "string"
+          }
+        },
+        "required": [
+          "fileKey"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_create_email_address",
+      "description": "Creates a temporary email address inbox.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "inboxName": {
+            "description": "Name of the inbox to create",
+            "type": "string"
+          }
+        },
+        "required": [
+          "inboxName"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_fetch_emails",
+      "description": "Fetches emails from an inbox.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "inboxName": {
+            "description": "Name of the inbox to fetch from",
+            "type": "string"
+          }
+        },
+        "required": [
+          "inboxName"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_clear_emails",
+      "description": "Clears emails in an inbox.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "inboxName": {
+            "description": "Name of the inbox to clear",
+            "type": "string"
+          }
+        },
+        "required": [
+          "inboxName"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_text_content",
+      "description": "Gets the text content of the document.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_url",
+      "description": "Gets the current URL of the page.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_screenshot",
+      "description": "Takes a screenshot of the page.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_check_accessibility",
+      "description": "Checks the page for accessibility issues.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_confetti",
+      "description": "Triggers confetti on the page.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_auto",
+      "description": "Runs automated actions based on a distribution.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "actionDistribution": {
+            "description": "Action distribution configuration"
+          }
+        },
+        "required": [
+          "actionDistribution"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_fuzzing",
+      "description": "Runs fuzzing on the page.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "durationInS": {
+            "description": "Duration of fuzzing in seconds",
+            "type": "number"
+          }
+        },
+        "required": [
+          "durationInS"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_start_profiler",
+      "description": "Starts the page profiler.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_stop_profiler",
+      "description": "Stops the page profiler.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_list_page_inputs",
+      "description": "This lists all HTML elements that accept text input.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_list_clickable",
+      "description": "This lists all the buttons links and other clickable elements on the current page including there texts.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_get_input_value",
+      "description": "Gets the value of an input element matching the label.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "description": "Label of the input element",
+            "type": "string"
+          },
+          "position": {
+            "description": "These are the approximate coordinates of the element. If none are known, just use x:0 and y:0.",
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "x",
+              "y"
+            ]
+          }
+        },
+        "required": [
+          "label",
+          "position"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_clear_input_value",
+      "description": "Clear any text that has been typed into the input element that matches the label.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "description": "Label of the input element",
+            "type": "string"
+          },
+          "position": {
+            "description": "These are the approximate coordinates of the element. If none are known, just use x:0 and y:0.",
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "x",
+              "y"
+            ]
+          }
+        },
+        "required": [
+          "label",
+          "position"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_get_page_title",
+      "description": "It gives back the title of the current HTML document.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_get_console_log",
+      "description": "It gives back the last console messages that were printed to the browser console.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "browser_get_network_history",
+      "description": "It shows the last network requests made by the browser during the current session.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    }
+  ]
+}
