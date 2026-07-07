@@ -9,7 +9,7 @@ or visually-tuned models.
 The kogiQA MCP Server provides a browser which incorporates the capabilities of the kogiQA browser control algorithm.
 This enables agents to interact with pages without a selector, saving time and tokens.
 
-## Requirements
+### Requirements
 + Node.js 20 or newer
 + VS Code, Cursor, Windsurf, Claude Desktop, Goose, Junie or a other MCP client
 
