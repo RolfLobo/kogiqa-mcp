@@ -19,11 +19,11 @@ import {StdioServerTransport} from "@modelcontextprotocol/sdk/server/stdio.js";
 import {Client} from "@modelcontextprotocol/sdk/client/index.js";
 import {StreamableHTTPClientTransport} from "@modelcontextprotocol/sdk/client/streamableHttp.js";
 import {getAppBinPath, getFirstFreePort, waitForHttpServer} from "./helper.js";
-import {baseDirname, extractedPath, preferredPort} from "./config.js";
+import {extractedPath, npxDirname, preferredPort} from "./config.js";
 import downloadeBinary from "./downloadeBinary.js";
 
 
-const toolList = JSON.parse(fs.readFileSync(path.join(baseDirname, 'toolList.json'), 'utf-8'));
+const toolList = JSON.parse(fs.readFileSync(path.join(npxDirname, 'toolList.json'), 'utf-8'));
 
 let appProcess = null;
 let mcpClient = null;
@@ -45,7 +45,7 @@ async function ensureAppInstalled() {
 function startApp() {
     console.error("[Proxy] Starting election app...");
 
-    const child = spawn(appBinPath, [`--` ,`--mcp`,`--mcpPort=${appPort}`], {
+    const child = spawn(appBinPath, [`--`, `--mcp`, `--mcpPort=${appPort}`], {
         stdio: ["ignore", "ignore", "inherit"],
     });
 

@@ -9,12 +9,19 @@
  */
 
 import path from "path";
-import {fileURLToPath} from "url";
+import os from "os";
+import {fileURLToPath} from "node:url";
+import fs from "fs";
 
-export const version = "0.5.1097";
+export const version = "0.5.1105";
 export const baseURL = "https://updater.kogiqa.com/release";
 export const preferredPort = 4239;
 
 
-export const baseDirname = path.dirname(fileURLToPath(import.meta.url));
+export const baseDirname = path.join(os.homedir(), ".kogiqa-mcp");
+export const npxDirname = path.dirname(fileURLToPath(import.meta.url));
 export const extractedPath = path.join(baseDirname, "kogiqa-extracted");
+
+if (!fs.existsSync(baseDirname)) {
+    fs.mkdirSync(baseDirname, {recursive: true});
+}
