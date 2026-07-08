@@ -21,6 +21,7 @@ import {StreamableHTTPClientTransport} from "@modelcontextprotocol/sdk/client/st
 import {getAppBinPath, getFirstFreePort, waitForHttpServer} from "./helper.js";
 import {extractedPath, npxDirname, preferredPort} from "./config.js";
 import downloadeBinary from "./downloadeBinary.js";
+import printAfterStart from "./consoleOutput.js";
 
 
 const toolList = JSON.parse(fs.readFileSync(path.join(npxDirname, 'toolList.json'), 'utf-8'));
@@ -112,6 +113,7 @@ async function startProxy() {
     const stdioTransport = new StdioServerTransport();
     await mcpServer.connect(stdioTransport);
     console.error("[Proxy] Proxy server running on stdio.");
+    await printAfterStart();
 }
 
 
@@ -133,3 +135,5 @@ async function main() {
 }
 
 main();
+
+
