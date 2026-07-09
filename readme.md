@@ -4,11 +4,6 @@ A Model Context Protocol (MCP) server that provides browser automation capabilit
 enables LLMs to interact with web pages through natural language, bypassing the need for screenshots
 or visually-tuned models.
 
-### kogiQA MCP vs Playwright MCP
-
-The kogiQA MCP Server provides a browser which incorporates the capabilities of the kogiQA browser control algorithm.
-This enables agents to interact with pages without a selector, saving time and tokens.
-
 ### For what to use:
 + Debug style issues on your page
 + Automatically fix console errors.
@@ -17,6 +12,12 @@ This enables agents to interact with pages without a selector, saving time and t
 + Automate exploratory testing of your application
 
 See example prompts [Usage Examples](#usage-examples)
+
+### kogiQA MCP vs Playwright MCP
+
+The kogiQA MCP Server provides a browser which incorporates the capabilities of the kogiQA browser control algorithm.
+This enables agents to interact with pages without a selector, saving time and tokens.
+
 
 ### Installation
 
@@ -99,4 +100,3 @@ Do 10 minutes of exploratory testing on http://localhost:8080: try edge-case inp
 + Node.js 20 or newer
 + VS Code, Cursor, Windsurf, Claude Desktop, Goose, Junie or a other MCP client
 
-[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/atagon-gmbh-kogiqa-mcp-badge.png)](https://mseep.ai/app/atagon-gmbh-kogiqa-mcp)
