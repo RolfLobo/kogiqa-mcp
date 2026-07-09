@@ -1,5 +1,3 @@
-[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/atagon-gmbh-kogiqa-mcp-badge.png)](https://mseep.ai/app/atagon-gmbh-kogiqa-mcp)
-
 ## kogiQA MCP Web Browser
 
 A Model Context Protocol (MCP) server that provides browser automation capabilities using kogiQA. This server
@@ -101,3 +99,4 @@ Do 10 minutes of exploratory testing on http://localhost:8080: try edge-case inp
 + Node.js 20 or newer
 + VS Code, Cursor, Windsurf, Claude Desktop, Goose, Junie or a other MCP client
 
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/atagon-gmbh-kogiqa-mcp-badge.png)](https://mseep.ai/app/atagon-gmbh-kogiqa-mcp)
