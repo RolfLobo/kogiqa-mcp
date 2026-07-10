@@ -3,8 +3,12 @@
   "name": "com.atagon/kogiqa-mcp",
   "title": "kogiQA MCP Web Browser",
   "description": "This web browser has been designed to help your agent debug and develop complex web applications.",
-  "version": "1.3.29",
+  "version": "1.3.40",
   "homepage": "https://kogiqa.com",
+  "repository": {
+    "url": "https://github.com/atagon-GmbH/kogiqa-mcp",
+    "source": "github"
+  },
   "license": "MIT",
   "author": {
     "name": "atagon GmbH"
@@ -13,7 +17,7 @@
     {
       "registryType": "npm",
       "identifier": "kogiqa-mcp",
-      "version": "1.3.29",
+      "version": "1.3.40",
       "transport": {
         "type": "stdio"
       }

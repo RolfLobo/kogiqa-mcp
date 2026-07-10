@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "kogiqa-browser": {
+      "command": "npx",
+      "args": [
+        "kogiqa-mcp@latest"
+      ]
+    }
+  }
+}
