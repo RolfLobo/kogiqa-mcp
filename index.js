@@ -19,7 +19,7 @@ import {StdioServerTransport} from "@modelcontextprotocol/sdk/server/stdio.js";
 import {Client} from "@modelcontextprotocol/sdk/client/index.js";
 import {StreamableHTTPClientTransport} from "@modelcontextprotocol/sdk/client/streamableHttp.js";
 import {getAppBinPath, getFirstFreePort, waitForHttpServer} from "./helper.js";
-import {extractedPath, npxDirname, preferredPort} from "./config.js";
+import {baseDirname, extractedPath, npxDirname, preferredPort} from "./config.js";
 import downloadeBinary from "./downloadeBinary.js";
 import printAfterStart from "./consoleOutput.js";
 
@@ -53,7 +53,7 @@ function startApp() {
     // const child = spawn("npm", ["run", "local:dev:mcp", `--`, `--mcp`, `--mcpPort=${appPort}`], {
     //     stdio: ["ignore", "ignore", "inherit"],
     //     shell: true,
-    //     cwd: path.resolve(baseDirname, "../../desktop-client"),
+    //     cwd: path.resolve("../../desktop-client"),
     // });
 
     child.on("error", (err) => {
@@ -76,7 +76,6 @@ async function ensureConnection() {
         console.error("[Proxy] App is not running. Starting it now...");
         appProcess = startApp();
         await waitForHttpServer(SseURL);
-        await new Promise((resolve) => setTimeout(resolve, 4000));
 
         needsReconnection = true;
     }
@@ -86,7 +85,6 @@ async function ensureConnection() {
         const httpTransport = new StreamableHTTPClientTransport(new URL(SseURL));
         mcpClient = new Client({name: "kogiqa-webbrowser-mcp-server-client", version: "1.0.0"});
         await mcpClient.connect(httpTransport);
-        await new Promise((resolve) => setTimeout(resolve, 4000));
 
         console.error("[Proxy] Connected to Election App HTTP endpoint.");
     }

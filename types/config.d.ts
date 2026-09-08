@@ -1,6 +1,6 @@
-export const version: "0.5.1097";
-export const baseURL: "https://updater.kogiqa.com/release";
-export const preferredPort: 4239;
-export const baseDirname: string;
-export const npxDirname: string;
-export const extractedPath: string;
+export declare const version = "0.5.1131";
+export declare const baseURL = "https://updater.kogiqa.com/release";
+export declare const preferredPort = 4239;
+export declare const baseDirname: string;
+export declare const npxDirname: string;
+export declare const extractedPath: string;
